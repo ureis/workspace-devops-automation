@@ -1,4 +1,4 @@
-name: Java API CI/CD Pipeline
+name: 🚀 Java API CI/CD Pipeline
 
 on:
   push:
@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
   id-token: write
+  contents: read
 
 env:
   ARTIFACT_NAME: "api-${{ github.sha }}.jar"
@@ -20,7 +20,6 @@ env:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - name: 🔍 Checkout Code
         uses: actions/checkout@v3
@@ -28,8 +27,8 @@ jobs:
       - name: ☕ Setup Java
         uses: actions/setup-java@v2
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '17'
 
       - name: 📦 Build with Maven
         run: mvn clean package -DskipTests
